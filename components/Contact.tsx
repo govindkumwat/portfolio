@@ -36,7 +36,7 @@ export default function Contact() {
                                 className="flex items-center gap-4 group hover:bg-white/5 p-4 rounded-xl transition-colors"
                             >
                                 <div className="w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-all">
-                                    <Phone className="w-5 h-5" />
+                                    <Phone className="w-5 h-5" strokeWidth={1.5} />
                                 </div>
                                 <div>
                                     <p className="text-sm text-slate-500">Phone</p>
@@ -49,11 +49,14 @@ export default function Contact() {
                                 className="flex items-center gap-4 group hover:bg-white/5 p-4 rounded-xl transition-colors"
                             >
                                 <div className="w-12 h-12 bg-cyan-500/10 rounded-full flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-white transition-all">
-                                    <Mail className="w-5 h-5" />
+                                    <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="2" y="4" width="20" height="16" rx="2" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M2 6l10 7 10-7" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
                                 </div>
-                                <div>
+                                <div className="min-w-0 flex-1">
                                     <p className="text-sm text-slate-500">Email</p>
-                                    <p className="text-white font-medium group-hover:text-cyan-300 transition-colors">kumawatgovind1997@gmail.com</p>
+                                    <p className="text-white font-medium group-hover:text-cyan-300 transition-colors break-all">kumawatgovind1997@gmail.com</p>
                                 </div>
                             </a>
 
@@ -64,7 +67,7 @@ export default function Contact() {
                                 className="flex items-center gap-4 group hover:bg-white/5 p-4 rounded-xl transition-colors"
                             >
                                 <div className="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all">
-                                    <Linkedin className="w-5 h-5" />
+                                    <Linkedin className="w-5 h-5" strokeWidth={1.5} />
                                 </div>
                                 <div>
                                     <p className="text-sm text-slate-500">LinkedIn</p>
