@@ -1,17 +1,29 @@
 "use client";
 
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function MouseFollower() {
     const cursorX = useMotionValue(-100);
     const cursorY = useMotionValue(-100);
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
 
     const springConfig = { damping: 25, stiffness: 700 };
     const cursorXSpring = useSpring(cursorX, springConfig);
     const cursorYSpring = useSpring(cursorY, springConfig);
 
     useEffect(() => {
+        // Detect if device supports touch
+        const checkTouchDevice = () => {
+            setIsTouchDevice(
+                'ontouchstart' in window ||
+                navigator.maxTouchPoints > 0 ||
+                window.matchMedia("(pointer: coarse)").matches
+            );
+        };
+
+        checkTouchDevice();
+
         const moveCursor = (e: MouseEvent) => {
             cursorX.set(e.clientX);
             cursorY.set(e.clientY);
@@ -23,6 +35,11 @@ export default function MouseFollower() {
             window.removeEventListener("mousemove", moveCursor);
         };
     }, [cursorX, cursorY]);
+
+    // Don't render on touch devices
+    if (isTouchDevice) {
+        return null;
+    }
 
     return (
         <>
